@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./grid.css">
+  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-bar ">
+        <h1 class="logo">LOGO</h1>
+
+        <ul class="action-menu">
+          <li><a href="#" class="link">Home</a></li>
+          <li><a href="#" class="link">Service</a></li>
+          <li><a href="#" class="link">Service</a></li>
+          <li><a href="#" class="link">About US</a></li>
+          <li><a href="#" class="link">Contact</a></li>
+        </ul>
+        <section class="username">
+          <p>USERNAME</p>
+          <button>Logout</button>
+        </section>
+      </div>
+    </nav>
+    <section class="hero-section ">
+      <div class="left-section">
+        <h1>
+          Revitalize Your <br>Clothes with Expert <br>
+          <span>Laundry Services!</span>
+        </h1>
+        <p>
+          From premium dry cleaning to swift wash and fold, we <br>
+          deliver care and convenience. Schedule a pickup and <br>
+          rediscover the freshness of your clothes today!   
+        </p>     
+        <button>Book Now</button>   
+      </div>
+      <div class="right-section">
+        <img src="./images/laundry.jpg" alt="">
+      </div>
+    </section>
+  </header>
+  <section class="achivements parent">
+    <h2 class="div1">Our Achivements</h2>
+    <div class="section-link  div2">
+      <h3>15+</h3>
+      <p>laundry Services</p>
+    </div>
+        <div class="section-link div3">
+      <h3>240+</h3>
+      <p>Happy Customers</p>
+    </div>
+        <div class="section-link div4">
+      <h3>2+ Yrs</h3>
+      <p>Exeriences</p>
+    </div>
+
+  </section>
+    <main class="container">
+  <div class="services-panel">
+    <div class="serv  ices-card">
+      <section id="topright-block">
+        <h2>Our Services</h2>
+        <p>Click on the add to cart button to add the services to your cart</p>
+      </section>
+
+      <hr>
+
+      <div class="service-list">
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-icon">👕</span>
+            <span class="service-name">Dry Cleaning</span>
+            <span class="service-price">₹200.00</span>
+          </div>
+          <button class="add-to-cart-btn" type="submit">Add Item</button>
+        </div>
+
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-icon">🧺</span>
+            <span class="service-name">Wash & Fold</span>
+            <span class="service-price">₹100.00</span>
+          </div>
+          <button class="add-to-cart-btn">Add Item</button>
+        </div>
+
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-icon">🧼</span>
+            <span class="service-name">Ironing</span>
+            <span class="service-price">₹30.00</span>
+          </div>
+          <button class="add-to-cart-btn" >Add Item</button>
+        </div>
+
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-icon">✨</span>
+            <span class="service-name">Stain Removal</span>
+            <span class="service-price">₹500.00</span>
+          </div>
+          <button class="add-to-cart-btn" >Add Item</button>
+        </div>
+
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-icon">🧥</span>
+            <span class="service-name">Leather & Suede Cleaning</span>
+            <span class="service-price">₹999.00</span>
+          </div>
+          <button class="add-to-cart-btn">Add Item</button>
+        </div>
+
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-icon">👰</span>
+            <span class="service-name">Wedding Dress Cleaning</span>
+            <span class="service-price">₹2800.00</span>
+          </div>
+          <button class="add-to-cart-btn" >Add Item</button>
+        </div>
+      </div>
+
+      <hr>
+      <p id="info">ℹ️ Add the items to the cart and book now</p>
+    </div>
+  </div>
+
+  <div class="cart-panel">
+    <div class="topleft-block">
+      <h2>Added Items</h2>
+      <hr>
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Service Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div id="cart-detail">
+        <table>
+          <tbody id="cart-items"></tbody>
+        </table>
+      </div>
+
+      <hr>
+
+      <div class="cart-total">
+        <h3>Total Amount</h3>
+        <span id="total-amount">₹0.00</span>
+      </div>
+    </div>
+
+    <div class="bottomleft-block">
+      <h3>Book Now</h3>
+      <form id="contact-form">
+    <label for="input-name" class="form-label">Full Name </label>
+      <input type="text" placeholder="John Doe"  name="name" id="input-name" >
+
+      <section id="contact">
+        <div class="input-group">
+          <label for="input-email" class="form-label">Email ID </label>
+          <input type="text" placeholder="mail@gmail.com" name="email" id="input-email">
+        </div>
+
+        <div class="input-group">
+          <label for="input-number" class="form-label">Phone Number </label>
+          <input type="tel" placeholder="0000000000" name="number"  id="input-number"  >
+        </div>
+      </section>
+     
+      <button id="book-now-btn"  type="submit" value="Send">Book now</button>
+ </form>
+
+
+
+      <section id="book-section"></section>
+    </div>
+  </div>
+</main>
+<section class="services">
+  
+<div class="services-parent">
+    <div class="col">
+      <p>
+        <img width="65" height="65" src="https://img.icons8.com/external-flatarticons-blue-flatarticons/65/external-machine-internet-of-things-flatarticons-blue-flatarticons.png" alt="external-machine-internet-of-things-flatarticons-blue-flatarticons"/>
+      </p>
+    <h3> Premium Services</h3> 
+    <p>        Elevate your wardrobe with our
+        meticulous dry cleaning.
+        ensuring garments look and feel
+        as good as new.
+</p>
+
+
+    </div>
+    <div class="col">   
+      <p><img width="65" height="65" src="https://img.icons8.com/ultraviolet/40/technical-support.png" alt="technical-support"/></p>
+      <h3> Premium Services</h3> 
+    <p>        Elevate your wardrobe with our
+        meticulous dry cleaning.
+        ensuring garments look and feel
+        as good as new.
+</p></div>
+    <div class="col">
+      <p>
+        <img width="65" height="65" src="https://img.icons8.com/office/40/in-transit--v1.png" alt="in-transit--v1"/>
+      </p>    <h3> Premium Services</h3> 
+    <p>        Elevate your wardrobe with our
+        meticulous dry cleaning.
+        ensuring garments look and feel
+        as good as new.
+</p></div>
+    <div class="col">  
+      <p>
+        <img width="65" height="65" src="https://img.icons8.com/ultraviolet/40/handshake.png" alt="handshake"/>
+      </p>
+      <h3> Premium Services</h3> 
+    <p>        Elevate your wardrobe with our
+        meticulous dry cleaning.
+        ensuring garments look and feel
+        as good as new.
+</p></div>
+</div>
+    
+</section>
+<section class="newsletter">
+  
+<div class="newsletter-parent">
+    <div class="new-col">
+      <h2>
+        Subscribe to our <br>newsletter.
+      </h2>
+    </div>
+    <div class="new-col2">
+      <div class="sub-contact">
+        <input type="text" placeholder="FUll Name" value name>
+        <input type="mail" placeholder="email@email.com" name="email">
+      </div>
+      <button>Subscribe</button>
+    </div>
+</div>
+    
+</section>
+<footer>
+  
+<div class="footer-parent">
+    <div class="foot">
+      <h1>Logo</h1>
+      <h3>About Us</h3>
+      <p>
+        
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, tempora repellendus. 
+      </p>
+
+    </div>
+    <div class="foot">
+
+      <h3>Important Links</h3>
+      <div class="foot-links">
+      <a href="#">About US</a>
+      <a href="#">Contact US</a>
+      <a href="">Privacy Policy</a>
+      <a href="#">terms Of use</a>
+      <a href="#">Refund Policy</a>
+      </div>
+
+    </div>
+    <div class="foot"><h3>
+      Contact
+    </h3>
+    <p>mail@gmail.com</p>
+    <p>+91 98756 12435</p>
+    </div>
+    <div class="foot">
+      <h3>Follow US</h3>
+      <div>
+              <ion-icon name="logo-twitter"></ion-icon>
+      <ion-icon name="logo-youtube"></ion-icon>
+      <ion-icon name="logo-linkedin"></ion-icon>
+      <ion-icon name="logo-instagram"></ion-icon>
+      <ion-icon name="logo-github"></ion-icon>
+      </div>
+
+    </div>
+</div>
+    
+</footer>
+<script src="./scripts.js"></script>
+
+</body>
+</html>

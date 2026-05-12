@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    padding: 10vh 25vw;
+}
+.main {/*main DIV*/
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+.image{/*Image DIV*/
+    width: 100%;
+    height: 90%;
+}
+img{/*Image tag*/
+    width: 100%;
+    height: 100%;
+}
+button{/*Button*/
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(87deg, #d492a4, #8898c7, #d492a4);
+}

@@ -1,0 +1,1 @@
+used the Javascript varibles to calculate the compoun intrest

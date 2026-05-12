@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="logo" id="logo">LOGO</div>
+    <div class="nav-links">
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <span class="username">Username</span>
+      <button class="logout-btn">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="left-block">
+      <div class="topleft-block">
+        <h2>Added Items</h2>
+        <hr>
+        <table>
+            <thead>
+            <tr>
+              <th>Service Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+        </table>
+      <div id="cart-detail">
+        <table>
+
+          <tbody id="cart-items"></tbody>
+        </table>
+      </div>
+      <hr>
+      <div class="cart-total">
+        <h3>Total Amount: ₹<span id="total-amount">0</span></h3>
+      </div>
+      </div>
+      <div class="bottomleft-block">
+        <h3>Book Now</h3>
+        <span id="name">
+          Full Name
+          <input type="text" placeholder="Enter your full name" id="input-name">
+        </span>
+        <section id="contact">
+           <span id="email-span">
+          Email
+          <input type="email" placeholder="Enter your email" id="input-email">
+          </span>
+                 <span id="number-span">
+          Number
+          <input type="tel" placeholder="Mobile number" id="input-number">
+        </span>
+        </section>
+        <button id="book-now-btn" onclick="book()">Book Now</button>
+        <section id="book-section">
+        </section>
+     
+      </div>
+    </div>
+    <div class="right-block">
+      <section id="topright-block">
+      <h2>Browse our Services</h2>
+      <p>Click on the add to cart button to add services to your cart or press skip.</p>
+      </section>
+      <hr>
+      <section id="service-section " onload="defaultImage()">
+
+          <select id="services"></select>
+
+      
+      
+        <label for="services" class="services">Choose Service</label>
+
+           <img id="service-image" src="" alt="Selected Service Image" >
+      </section>
+      <section id="btn-section">
+        <button id="skip-btn" ondblclick="skipItem()">Skip</button>
+        <button id="add-to-cart-btn" onclick="addtoCart()">Add to Cart</button>
+        
+      </section>
+      
+      <hr>
+      <p id="info">ℹ️Add items to cart and book now</p>
+    </div>
+  </div>
+  <script src="./scripts.js"></script>
+</body>
+</html>

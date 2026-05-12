@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: white;
+}
+.nav-bar a{
+    text-decoration: none;
+    color: darkgray;
+    font-size: 20px;
+    align-content: center;
+}
+.nav-bar a:hover{
+    color: #8fd1f5;
+
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-content: center;
+    gap: 10px;
+}
+.nav-actions{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;    
+}
+.username{
+    font-size: 20px;
+    background-color:#e1f1f7;
+    padding: 10px;
+    border-radius: 15px 0px 0px 15px;
+    color: #8fd0f4;
+}
+.logout-btn{
+    font-size: 20px;
+    background-color:#f8d7dd;
+    padding: 10px;
+    border-radius: 0px 15px 15px 0px;
+    color: #81515a;
+    border: none;
+}
+.logout-btn:hover{
+    background-color: #f5c2c7;
+    color: #6b4149;
+
+}
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    color: #8fd0f4;
+    align-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 20px;
+}
+.right-block{
+    margin-top: 6vh;
+    width: 30%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    height: 108%;
+
+}
+#topright-block{
+    padding: 20px;
+    line-height: 2;    
+}
+#topright-block p{
+    line-height: 1;
+    color: darkgrey;
+}
+.left-block{
+    margin-top: 6vh;
+    width: 30%;   
+    height: 101%;
+}
+.topleft-block{
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    height: 53%;
+
+   
+}
+.bottomleft-block{
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+   height: 48%;
+    margin-top: 20px;
+    display: grid;
+}
+#name{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: grid;
+}
+#input-name,#input-email,#input-number{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    
+}
+#email-span,#number-span{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: grid;
+}
+#contact{
+    display: flex;
+    gap: 10px;
+}
+#book-now-btn{
+    padding: 10px;
+    background-color: #8fd0f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+#book-now-btn:hover{
+    background-color: #7ac0e3;
+    cursor: disabled;
+   
+}
+
+hr{
+    margin-top: 20px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+#btn-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap:10px;
+
+}
+#btn-section button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+#skip-btn{
+    background-color: #f8d7dd;
+    color: #81515a;
+    width: 40%;
+}
+#skip-btn:hover{
+    background-color: #f5c2c7;
+    color: #6b4149;
+}
+#add-to-cart-btn{
+    background-color: #e9f6ea;
+    color: #baddbc;
+    width: 60%;
+}
+#add-to-cart-btn:hover{
+    background-color: #d4f0d1;
+    color: #a0c9a3;
+}
+#cart-detail{
+    margin-top: 20px;
+    overflow-y: auto;
+
+}
+.cart-total{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+#book-section{
+    justify-content: left;
+}
+#book-alert{
+    padding: 10px;
+  
+    color: #861f32;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+
+}
+#book-alert-success{
+  
+    color: #155724;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+
+        
+}
+table{
+
+   justify-content: space-between;
+   width: 100%;
+
+}
+
+#services, .services{
+    display: none;
+}
+#service-image{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#cart-detail{
+   height:50%;
+   overflow: auto;
+}
+#info{
+    margin-bottom: 10px;
+    color: #54a1ee;
+    margin-top: 10px;
+}
+#name, #email-span,#number-span{
+    font-size: small;
+}

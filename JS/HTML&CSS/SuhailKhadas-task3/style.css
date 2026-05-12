@@ -1,0 +1,22 @@
+#body{
+    background-color: #f8fafd;
+}
+.heading{
+    color: darkblue;
+}
+#second_heading{
+    background-color: lime;
+    color: red;
+}
+#para{
+    color: green;
+}
+#highlight{
+    color: black;
+    font-size: 25px;
+}
+li span {
+    color: blue;
+    text-decoration: underline;
+  
+}

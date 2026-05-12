@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-box {
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 220px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search by name..." />
+    </div>
+
+    <div class="container" id="studentContainer"></div>
+
+    <script>
+        // ✅ Array of student objects
+        const students = [
+            { name: "Aman", marks: 85, class: "10th", address: "Pune" },
+            { name: "Riya", marks: 92, class: "10th", address: "Mumbai" },
+            { name: "Karan", marks: 76, class: "9th", address: "Delhi" },
+            { name: "Sneha", marks: 88, class: "9th", address: "Chennai" },
+            { name: "Rahul", marks: 67, class: "8th", address: "Bangalore" }
+        ];
+
+        const container = document.getElementById("studentContainer");
+        const searchInput = document.getElementById("search");
+
+        // ✅ Function to render students using map()
+        function renderStudents(data) {
+            container.innerHTML = data.map(student => `
+                <div class="card">
+                    <h3>${student.name}</h3>
+                    <p><strong>Marks:</strong> ${student.marks}</p>
+                    <p><strong>Class:</strong> ${student.class}</p>
+                    <p><strong>Address:</strong> ${student.address}</p>
+                </div>
+            `).join("");
+        }
+
+        // Initial render
+        renderStudents(students);
+
+        // ✅ Search functionality using filter()
+        searchInput.addEventListener("input", function () {
+            const searchText = searchInput.value.toLowerCase();
+
+            const filteredStudents = students.filter(student =>
+                student.name.toLowerCase().includes(searchText)
+            );
+
+            renderStudents(filteredStudents);
+        });
+    </script>
+
+</body>
+</html>
