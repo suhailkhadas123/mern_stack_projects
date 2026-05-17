@@ -2,74 +2,47 @@ import React from "react";
 
 const Signup = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white shadow-md rounded-xl p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Sign Up
-        </h2>
-
-        <form className="space-y-5">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Enter your full name"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-            />
+    <>
+    <div className="flex flex-wrap justify-center p-2">
+       <div className="bg-gray-900 w-100 h-120 -rotate-6 rounded-2xl  ">
+      <div className="bg-gray-100 h-120 rotate-6 rounded-2xl ">
+      <div className="w-80 h-100 flex flex-col justify-center items-center gap-6">
+           <div>
+          <h1 className="text-2xl font-semibold">Login</h1>
+        </div>
+        <form>
+                   <div className="relative">
+                    <label  className=" text-gray-600 text-sm ">Frist Name</label>
+              <input   type="text" className=" placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 outline-none " placeholder="Email address" />
+              
           </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-            />
+                   <div className="relative">
+                    <label  className=" text-gray-600 text-sm ">Last Name</label>
+              <input   type="text" className=" placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 outline-none " placeholder="Email address" />
+              
           </div>
-
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Create a password"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-            />
+         <div className="relative">
+                    <label  className=" text-gray-600 text-sm ">Email Address</label>
+              <input   type="text" className=" placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 outline-none " placeholder="Email address" />
+              
           </div>
-
-          <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirm your password"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition"
-          >
-            Sign Up
-          </button>
+            <div className="relative">
+              <label  className=" text-gray-600 text-sm ">Password</label>
+              <input type="password" className=" placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 outline-none "placeholder="Password" />
+              
+            </div>
+            <div className="relative">
+              <br />
+              <button type="submit" className="bg-cyan-500 text-white rounded-md px-2 py-1">Submit</button>
+            </div>
         </form>
 
-        <p className="text-sm text-center text-gray-600 mt-4">
-          Already have an account? <a href="/login" className="text-gray-900 font-medium">Login</a>
-        </p>
+      </div>
       </div>
     </div>
+    </div>
+   
+    </>
   );
 };
 
