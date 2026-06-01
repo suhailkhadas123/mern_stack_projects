@@ -1,49 +1,9 @@
 import { useState } from "react";
 import {Cart,products} from '../../index.jsx';
-
+import {useCart} from "../context/CartContext.jsx";
 
 function Container() {
-  const [cart, setCart] = useState([]);
-
-  function addToCart(product) {
-    setCart(cart.concat(product));
-    console.log("Logged");
-    const existing = cart.find((item) => item.id === product.id);
-
-  if (existing) {
-    const updated = cart.map((item) =>
-      item.id === product.id
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
-    setCart(updated);
-  } else {
-    setCart(cart.concat({ ...product, quantity: 1 }));
-  }
-  }
-
-const total = cart.reduce(   (sum, item) => sum + item.price * item.quantity,
-  0
-);
-
-function increaseQuantity(id) {
-  const updated = cart.map((item) =>
-    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-  );
-  setCart(updated);
-}
-
-function decreaseQuantity(id) {
-  const updated = cart
-    .map((item) =>
-      item.id === id
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    )
-    .filter((item) => item.quantity > 0); // remove item if quantity 0
-
-  setCart(updated);
-}
+  const {cart,addToCart,total,increaseQuantity,decreaseQuantity} = useCart();
   return (
     <div className="container mx-auto flex flex-col lg:grid lg:grid-cols-3 gap-4 justify-items-center bg-neutral-100 min-h-screen px-4 py-6">
      <div className="products w-full lg:col-span-2 p-0 lg:p-5 flex justify-center">

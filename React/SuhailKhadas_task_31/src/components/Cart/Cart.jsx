@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 function Cart({ cart, increaseQuantity, decreaseQuantity }) {
   return (
+    <>
     <div>
       {cart.length === 0 ? (
         <p>No items in cart</p>
@@ -38,17 +39,26 @@ function Cart({ cart, increaseQuantity, decreaseQuantity }) {
               </div>
             
           </div>
-          <div>
-            <Link to="/Payment">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
-                Proceed To payment
-              </button>
-            </Link>
-          </div>
+
           </>
         ))
       )}
+
     </div>
+      {cart.length > 0 && (
+        <div>
+          <Link to="/Payment">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+              Proceed To payment
+            </button>
+          </Link>
+          <button onClick={() => { setCart([]) }} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition ml-2">
+            Clear Cart
+          </button>
+        </div>
+      )}
+
+      </>    
   );
 }
 

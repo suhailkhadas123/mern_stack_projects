@@ -1,5 +1,6 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import {Layout,Container,Payment} from "./index.jsx";
+import {Layout,Container,Payment,Cart} from "./index.jsx";
+import {CartProvider} from "./components/context/CartContext.jsx";
 function App() {
   
   const router =createBrowserRouter([
@@ -14,13 +15,19 @@ function App() {
         {
           path:"Payment",
           element: <Payment/>
+        },
+        {
+          path:"Products",
+          element: <Container/>
         }
       ]
     }
   ]);
   return (
     <>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
     </>
   )
 }

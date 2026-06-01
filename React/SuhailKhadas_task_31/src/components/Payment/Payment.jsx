@@ -1,200 +1,62 @@
-import React, { useContext, useState } from 'react';
+import React from 'react'
 import {Cart} from '../../index.jsx';
-import CartContext from "../context/CartContext.jsx";
-const Payment = () => {
-  const { items, totalAmount, clearCart } = useContext(CartContext);
-  const [paymentData, setPaymentData] = useState({
-    cardName: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
-    email: '',
-    address: '',
-  });
-  const [loading, setLoading] = useState(false);
-  const [orderPlaced, setOrderPlaced] = useState(false);
+import {useCart} from "../context/CartContext.jsx";
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setPaymentData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const response = await fetch('http://localhost:5000/api/payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...paymentData,
-          cartItems,
-          totalAmount,
-        }),
-      });
-
-      if (response.ok) {
-        setOrderPlaced(true);
-        clearCart();
-        setPaymentData({
-          cardName: '',
-          cardNumber: '',
-          expiryDate: '',
-          cvv: '',
-          email: '',
-          address: '',
-        });
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 3000);
-      } else {
-        alert('Payment failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred during payment processing.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (orderPlaced) {
-    return (
-      <div className="payment-success">
-        <h2>✓ Order Placed Successfully!</h2>
-        <p>Thank you for your purchase. Redirecting to home...</p>
-      </div>
-    );
-  }
-
+export const Payment = () => {
+  const {cart,increaseQuantity,decreaseQuantity,total} =useCart();  
   return (
-    <div className="payment-container">
-      <div className="payment-wrapper">
-        <h1>Payment Gateway</h1>
+    <>
+        <div className="container mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-4 justify-items-center bg-neutral-100  px-4 py-6">
+     <div className="products  w-full col-span-1 p-0  flex justify-center">
+          <form  className="w-full max-h-fit max-w-lg bg-white rounded-lg shadow p-6">
+            <h1 className="text-2xl font-bold mb-4">Payment Details</h1>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-2" htmlFor="name">Name on Card</label>
+              <input id="name" name="name" type="text" className="w-full border rounded px-3 py-2" required/>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-2" htmlFor="cardNumber">Card Number</label>
+              <input id="cardNumber" name="cardNumber" type="text"className="w-full border rounded px-3 py-2" required />
+            </div>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-medium mb-2" htmlFor="expiry">Expiry</label>
+                <input id="expiry" name="expiry" type="text" placeholder="MM/YY" className="w-full border rounded px-3 py-2" required />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2" htmlFor="cvv">CVV</label>
+                <input  id="cvv" name="cvv" type="password" className="w-full border rounded px-3 py-2" required />
+              </div>
+            </div>
+            <div className="mb-4">
+              <p className="text-lg font-semibold">Amount: ₹ {total}</p>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700"
+            >
+              Submit Payment
+            </button>
+          </form>
+      </div>
 
-        <div className="order-summary">
-          <h2>Order Summary</h2>
-          {cartItems.length > 0 ? (
-            <>
-              <div className="cart-items-preview">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="preview-item">
-                    <span>{item.name}</span>
-                    <span>x{item.quantity}</span>
-                    <span>${(item.price * item.quantity).toFixed(2)}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="total-section">
-                <h3>Total Amount: ${totalAmount.toFixed(2)}</h3>
-              </div>
-            </>
-          ) : (
-            <p>Your cart is empty</p>
-          )}
+   <div className="cart w-full lg:col-start-2 p-0 lg:p-5 mt-6 lg:mt-0 flex-initial ">
+        <div className="bg-zinc-200 w-full max-h-80 lg:max-h-120 overflow-auto grid p-4 rounded-lg">
+          <h1 className="text-xl font-bold mb-3">Cart</h1>
+          <Cart cart={cart} 
+          increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}
+          />
+          <div className="flex justify-center">
+            <p className="mt-5  font-bold  ">Total: ₹ {total}</p>            
+          </div>
+
         </div>
-
-        <form onSubmit={handleSubmit} className="payment-form">
-          <div className="form-group">
-            <label htmlFor="email">Email Address *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={paymentData.email}
-              onChange={handleInputChange}
-              required
-              placeholder="your@email.com"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="address">Shipping Address *</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              value={paymentData.address}
-              onChange={handleInputChange}
-              required
-              placeholder="123 Main Street, City, State, ZIP"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="cardName">Cardholder Name *</label>
-            <input
-              type="text"
-              id="cardName"
-              name="cardName"
-              value={paymentData.cardName}
-              onChange={handleInputChange}
-              required
-              placeholder="John Doe"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="cardNumber">Card Number *</label>
-            <input
-              type="text"
-              id="cardNumber"
-              name="cardNumber"
-              value={paymentData.cardNumber}
-              onChange={handleInputChange}
-              required
-              placeholder="1234 5678 9012 3456"
-              maxLength="19"
-            />
-          </div>
-
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="expiryDate">Expiry Date *</label>
-              <input
-                type="text"
-                id="expiryDate"
-                name="expiryDate"
-                value={paymentData.expiryDate}
-                onChange={handleInputChange}
-                required
-                placeholder="MM/YY"
-                maxLength="5"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="cvv">CVV *</label>
-              <input
-                type="text"
-                id="cvv"
-                name="cvv"
-                value={paymentData.cvv}
-                onChange={handleInputChange}
-                required
-                placeholder="123"
-                maxLength="4"
-              />
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="pay-button"
-            disabled={loading || cartItems.length === 0}
-          >
-            {loading ? 'Processing...' : `Pay $${totalAmount.toFixed(2)}`}
-          </button>
-        </form>
       </div>
     </div>
-  );
-};
+    
+    </>
+  )
+}
 
 export default Payment;

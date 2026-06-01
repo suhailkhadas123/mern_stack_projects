@@ -6,7 +6,7 @@ import fur from "./fur.jpg";
 import greenshoes from "./greenshoes.jpg";
 import greysneakers from "./greysneakers.jpg";
 import peachsneakers from "./peachsneakers.jpg";
-
+import logo from "./react.svg"
 const Images = {
   adventure,
   black,
@@ -16,6 +16,7 @@ const Images = {
   greenshoes,
   greysneakers,
   peachsneakers,
+  logo,
 };
 
 export default Images;

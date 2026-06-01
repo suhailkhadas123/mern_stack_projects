@@ -6,4 +6,6 @@ import Layout from "./components/layout/Layout.jsx";
 import products from "./data/products.js";
 import Payment from "./components/Payment/Payment.jsx";
 // import CartContext from "./components/context/CartContext.jsx";
-export { Nav, Container, Footer, Cart,Layout, products, Payment};
+import logo from "../src/assets/images.js"
+
+export { Nav, Container, Footer, Cart,Layout, products, Payment, logo};
