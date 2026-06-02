@@ -18,7 +18,7 @@ Foodelivery/
 ├── Images/
 ├── responsivegridsystem/
 ├── index.html
-├── Firefly_Gemini_Flash_generate...
+
 
 JS/
 ├── HTML&CSS/
